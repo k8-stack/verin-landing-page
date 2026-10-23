@@ -1,0 +1,173 @@
+/*
+ * Verin design tokens.
+ * Brand values are the official Base palette (brand.base.org/color), kept locked.
+ * Components must reference semantic tokens only — never raw hex values.
+ * See DESIGN_SYSTEM.md for rationale.
+ */
+:root {
+  color-scheme: light;
+
+  /* ---- Base palette: core (verbatim) ---- */
+  --base-blue: #0000ff;
+  --gray-0: #ffffff;
+  --gray-10: #eef0f3;
+  --gray-15: #dee1e7;
+  --gray-30: #b1b7c3;
+  --gray-50: #717886;
+  --gray-60: #5b616e;
+  --gray-80: #32353d;
+  --gray-100: #0a0b0d;
+
+  /* ---- Base palette: secondary (verbatim) — supplementary use only ---- */
+  --cerulean: #3c8aff;
+  --tan: #b8a581;
+  --yellow: #ffd12f;
+  --green: #66c800;
+  --lime: #b6f569;
+  --red: #fc401f;
+  --pink: #fea8cd;
+
+  /* ---- Product accessibility values (not brand colours) ----
+     Brand Green/Red fail AA as small text on white (2.14 / 3.56),
+     so text uses these darker values; brand hues remain for fills. */
+  --a11y-green-text: #2f7d00; /* 5.18:1 on white, 4.54:1 on gray-10 */
+  --a11y-red-text: #c42a0e; /* 5.70:1 on white, 4.99:1 on gray-10 */
+  --a11y-amber-text: #8a6d00; /* 4.92:1 on white */
+
+  /* ---- Semantic: backgrounds & surfaces ---- */
+  --bg: var(--gray-0);
+  --bg-subtle: var(--gray-10);
+  --bg-inverse: var(--gray-100);
+  --bg-brand: var(--base-blue);
+  --surface: var(--gray-0);
+  --surface-sunken: var(--gray-10);
+  --surface-hover: var(--gray-10);
+  --surface-selected: var(--gray-10);
+
+  /* ---- Semantic: text ---- */
+  --text: var(--gray-100);
+  --text-secondary: var(--gray-60); /* 6.21:1 on white */
+  --text-disabled: var(--gray-50); /* disabled only — below AA by design */
+  --text-inverse: var(--gray-0);
+  --text-on-brand: var(--gray-0);
+  --text-on-brand-secondary: var(--gray-10); /* 7.53:1 on blue */
+  --text-link: var(--base-blue);
+
+  /* ---- Semantic: brand & actions ---- */
+  --accent: var(--base-blue);
+  --cta-bg: var(--base-blue);
+  --cta-text: var(--gray-0);
+  --cta-bg-hover: var(--gray-100);
+  --secondary-bg: var(--gray-0);
+  --secondary-text: var(--gray-100);
+  --secondary-border: var(--gray-30);
+  --secondary-bg-hover: var(--gray-10);
+
+  /* ---- Semantic: lines ---- */
+  --border: var(--gray-15);
+  --border-strong: var(--gray-30);
+  --border-inverse: var(--gray-80);
+  --focus: var(--base-blue);
+  --focus-on-brand: var(--gray-0);
+
+  /* ---- Semantic: market & status ---- */
+  --positive: var(--a11y-green-text);
+  --negative: var(--a11y-red-text);
+  --positive-fill: var(--green);
+  --negative-fill: var(--red);
+  --warning-text: var(--a11y-amber-text);
+  --warning-fill: var(--yellow);
+  --error: var(--a11y-red-text);
+  --success: var(--a11y-green-text);
+  --chart-line: var(--base-blue);
+  --chart-grid: var(--gray-15);
+  --chart-series-2: var(--gray-100);
+  --chart-series-3: var(--gray-50);
+
+  /* ---- Typography ----
+     Base Sans / Base Mono are not distributed in the public brand kit, so the
+     documented fallbacks are used: Inter Tight, Roboto Mono, Doto. */
+  --font-sans: 'Inter Tight', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Roboto Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --font-dot: 'Doto', 'Roboto Mono', ui-monospace, monospace;
+
+  /* Type scale. HARD FLOOR: nothing below --fs-12 (12px) anywhere. */
+  --fs-12: 0.75rem; /* captions, axis labels — absolute minimum */
+  --fs-14: 0.875rem; /* dense UI, table cells, helper text */
+  --fs-16: 1rem; /* body, inputs, buttons */
+  --fs-18: 1.125rem; /* lead body */
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-32: 2rem;
+  --fs-40: 2.5rem;
+  --fs-h2: clamp(2rem, 1.4rem + 2.4vw, 3.5rem);
+  --fs-display: clamp(2.5rem, 1.5rem + 5vw, 5.5rem);
+
+  --lh-tight: 1; /* headline: leading 100% (Base) */
+  --lh-snug: 1.2; /* subheadline: leading 120% (Base) */
+  --lh-body: 1.45;
+  --track-headline: -0.03em; /* kerning -3% (Base) */
+  --track-sub: -0.02em; /* kerning -2% (Base) */
+  --track-label: 0.04em;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ---- Spacing (4px rhythm) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --section-y: clamp(4rem, 2.5rem + 6vw, 8rem);
+  --container: 80rem;
+  --container-narrow: 48rem;
+
+  /* ---- Geometry ---- */
+  --radius-xs: 4px;
+  --radius-sm: 6px; /* chips, badges */
+  --radius-md: 8px; /* buttons, inputs */
+  --radius-lg: 12px; /* panels, cards */
+  --radius-round: 999px; /* avatars, dots only */
+
+  --control-h-sm: 2.25rem; /* 36px */
+  --control-h: 2.75rem; /* 44px — minimum touch target */
+  --control-h-lg: 3.25rem; /* 52px */
+
+  --shadow-raised: 0 1px 2px rgb(10 11 13 / 0.06), 0 8px 24px -8px rgb(10 11 13 / 0.12);
+  --shadow-overlay: 0 24px 64px -16px rgb(10 11 13 / 0.28);
+
+  /* ---- Motion (Base: one curve, 120–240ms UI feedback) ---- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-base: 180ms;
+  --dur-slow: 240ms;
+  --dur-intro: 560ms;
+
+  /* ---- Layers ---- */
+  --z-raised: 1;
+  --z-sticky: 20;
+  --z-header: 40;
+  --z-overlay: 60;
+  --z-tooltip: 80;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 0ms;
+    --dur-intro: 0ms;
+  }
+}

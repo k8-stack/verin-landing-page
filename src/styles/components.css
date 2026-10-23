@@ -1,0 +1,268 @@
+/* ---- Logo ---- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text);
+}
+
+.logo__tile {
+  fill: var(--gray-100);
+}
+
+.logo__stroke {
+  fill: none;
+  stroke: var(--gray-0);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.logo__dot {
+  fill: var(--base-blue);
+  stroke: var(--gray-0);
+  stroke-width: 1.5;
+}
+
+.logo__word {
+  font-size: var(--fs-24);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.logo--inverse {
+  color: var(--text-inverse);
+}
+
+.logo--inverse .logo__tile {
+  fill: var(--gray-0);
+}
+
+.logo--inverse .logo__stroke {
+  stroke: var(--gray-100);
+}
+
+/* ---- Chart ---- */
+.chart {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.chart__svg {
+  overflow: visible;
+  touch-action: pan-y;
+}
+
+.chart__svg:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+}
+
+.chart__grid {
+  stroke: var(--chart-grid);
+  stroke-width: 1;
+}
+
+.chart__ref {
+  stroke: var(--gray-30);
+  stroke-dasharray: 3 4;
+}
+
+.chart__axis {
+  fill: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 12px; /* SVG text: explicit px, floor is 12 */
+}
+
+.chart__line {
+  fill: none;
+  stroke: var(--chart-line);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.chart--compact .chart__line {
+  stroke-width: 1.75;
+}
+
+.chart__last {
+  fill: var(--chart-line);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+
+.chart__cross {
+  stroke: var(--gray-100);
+  stroke-width: 1;
+}
+
+.chart__dot {
+  fill: var(--surface);
+  stroke: var(--chart-line);
+  stroke-width: 2.5;
+}
+
+.chart__tip {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 6px));
+  display: grid;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--bg-inverse);
+  color: var(--text-inverse);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: var(--z-tooltip);
+}
+
+.chart__tip-price {
+  font-size: var(--fs-14);
+  font-weight: var(--fw-medium);
+}
+
+.chart__tip-time {
+  font-size: var(--fs-12);
+  color: var(--gray-30);
+}
+
+/* ---- Route card ---- */
+.routecard {
+  position: relative;
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.routecard__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.routecard__out {
+  font-size: var(--fs-18);
+  font-weight: var(--fw-semibold);
+  overflow-wrap: anywhere;
+}
+
+.routecard__tags {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.routecard__legs {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.routecard__leg {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.routecard__share {
+  flex: none;
+  min-width: 2.75rem;
+  padding: 1px var(--space-1);
+  border-radius: var(--radius-xs);
+  background: var(--surface-sunken);
+  font-size: var(--fs-12);
+  text-align: center;
+}
+
+.routecard__meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+}
+
+.routecard__meta dt {
+  font-size: var(--fs-12);
+  color: var(--text-secondary);
+}
+
+.routecard__meta dd {
+  font-size: var(--fs-14);
+}
+
+/* ---- Leg path ---- */
+.legpath {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 0;
+  min-width: 0;
+  font-size: var(--fs-14);
+}
+
+.legpath__step {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+}
+
+.legpath__token {
+  font-weight: var(--fw-semibold);
+}
+
+.legpath__pool {
+  color: var(--text-secondary);
+  font-size: var(--fs-12);
+}
+
+.legpath__arrow {
+  color: var(--gray-50);
+}
+
+/* ---- Price impact ---- */
+.impact {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.impact--medium {
+  color: var(--warning-text);
+}
+
+.impact--high {
+  color: var(--error);
+  font-weight: var(--fw-semibold);
+}
+
+/* ---- Ordered steps ---- */
+.steps {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.steps__item {
+  display: flex;
+  gap: var(--space-3);
+  font-size: var(--fs-14);
+}
+
+.steps__n {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--radius-xs);
+  background: var(--surface-sunken);
+  font-size: var(--fs-12);
+}
